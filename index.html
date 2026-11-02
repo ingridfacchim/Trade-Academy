@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#020a18">
+  <meta name="description" content="Try the work before you commit to the career. Explore six 90-minute hands-on trade tasters and find three that match your interests.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Trade Academy | Find your next skill">
+  <meta property="og:description" content="One evening. A clearer direction. Explore six beginner-friendly trade tasters and find three that fit your interests.">
+  <!-- Add an absolute URL for a 1200x630 share image when the site launches: <meta property="og:image" content="https://your-domain.example/og-image.jpg"> -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trade Academy | Find your next skill">
+  <meta name="twitter:description" content="Try the work before you commit to the career. Five questions, three recommended tasters.">
+  <title>Trade Academy | Find your next skill</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23020a18'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='39'%3E%F0%9F%94%A7%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('trade-academy-theme') === 'light') {
+          document.documentElement.classList.add('light');
+        }
+      } catch (_) { /* localStorage may be disabled; the site still works. */ }
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #020a18;
+      --bg-grad: linear-gradient(170deg, #020a18, #041028 40%, #06142e 70%, #020a18);
+      --surface: rgba(8,24,56,0.85);
+      --border: rgba(0,170,255,0.12);
+      --text: #d0e0f0;
+      --text-bright: #e8f0ff;
+      --text-dim: #6888aa;
+      --neon: #00aaff;
+      --cyan: #00e5ff;
+      --green: #00ff88;
+      --amber: #ffaa00;
+      --surface-soft: rgba(14,34,66,0.66);
+      --surface-raised: #0e2040;
+      --grid-line: rgba(90,165,225,0.03);
+      --header-bg: rgba(2,10,24,0.70);
+      --shadow: 0 24px 80px rgba(0,0,0,0.23);
+      --orb-blue: rgba(0,170,255,0.13);
+      --orb-cyan: rgba(0,229,255,0.09);
+      --wood-a: #d9a96f;
+      --wood-b: #a86b37;
+      --wood-line: rgba(88,47,16,0.22);
+    }
+    html.light {
+      color-scheme: light;
+      --bg: #f5f9ff;
+      --bg-grad: linear-gradient(170deg, #f5f9ff, #eaf4ff 40%, #f1f8ff 70%, #ffffff);
+      --surface: rgba(255,255,255,0.93);
+      --border: rgba(3,81,142,0.17);
+      --text: #263f5d;
+      --text-bright: #102e4c;
+      --text-dim: #536e86;
+      --neon: #086fb9;
+      --cyan: #007f9b;
+      --green: #007c51;
+      --amber: #9b6000;
+      --surface-soft: rgba(230,243,253,0.82);
+      --surface-raised: #e6f2ff;
+      --grid-line: rgba(24,103,161,0.045);
+      --header-bg: rgba(247,251,255,0.80);
+      --shadow: 0 24px 72px rgba(33,90,132,0.10);
+      --orb-blue: rgba(21,131,212,0.14);
+      --orb-cyan: rgba(21,173,187,0.10);
+      --wood-a: #e2b67e;
+      --wood-b: #af7540;
+      --wood-line: rgba(88,47,16,0.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { margin: 0; min-height: 100vh; color: var(--text); background: var(--bg-grad); background-color: var(--bg); font: 400 16px/1.65 Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--cyan); text-underline-offset: 3px; }
+    a:hover { color: var(--text-bright); }
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
+    ::selection { background: var(--neon); color: #fff; }
+    .background-grid, .orb { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .background-grid { background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px); background-size: 60px 60px; }
+    .orb { inset: auto; width: 410px; height: 410px; border-radius: 50%; filter: blur(80px); opacity: 0.9; }
+    .orb-one { top: 6%; left: max(-220px, calc(50% - 680px)); background: var(--orb-blue); animation: orbit-one 20s ease-in-out infinite alternate; }
+    .orb-two { top: 43%; right: max(-230px, calc(50% - 720px)); background: var(--orb-cyan); animation: orbit-two 23s ease-in-out infinite alternate; }
+    @keyframes orbit-one { to { transform: translate(85px,110px) rotate(12deg); } }
+    @keyframes orbit-two { to { transform: translate(-95px,-105px) rotate(-18deg); } }
+    .wrap { width: min(880px, calc(100% - 40px)); margin-inline: auto; }
+    .skip-link { position: fixed; z-index: 100; left: 16px; top: -70px; padding: 10px 16px; color: #001624; background: #00e5ff; border-radius: 10px; }
+    .skip-link:focus { top: 12px; }
+    .site-header { position: sticky; top: 0; z-index: 50; background: var(--header-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+    .brand { display: inline-flex; gap: 11px; align-items: center; color: var(--text-bright); text-decoration: none; font-size: 15px; font-weight: 900; letter-spacing: 0.025em; }
+    .brand-mark { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid var(--border); border-radius: 11px; background: var(--surface-raised); font-size: 20px; }
+    .header-actions { display: flex; gap: 10px; align-items: center; }
+    .header-link { color: var(--text); font-size: 13px; font-weight: 700; text-decoration: none; padding: 8px 10px; }
+    .header-link:hover { color: var(--cyan); }
+    .theme-toggle { display: grid; place-items: center; height: 39px; width: 39px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--text-bright); }
+    .theme-toggle:hover { border-color: var(--neon); }
+    .light-icon, html.light .dark-icon { display: none; }
+    html.light .light-icon { display: inline; }
+    main, footer { position: relative; z-index: 1; }
+    .hero { padding: 86px 0 83px; display: grid; grid-template-columns: 1.23fr 0.77fr; gap: 34px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; text-transform: uppercase; letter-spacing: .17em; color: var(--cyan); font-size: 11px; font-weight: 800; }
+    .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px var(--green); }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, h3, h4 { color: var(--text-bright); line-height: 1.18; letter-spacing: -0.045em; }
+    h1 { font-size: clamp(37px, 5.6vw, 58px); font-weight: 900; margin: 20px 0; }
+    h2 { font-size: clamp(28px, 4.2vw, 38px); font-weight: 800; margin-bottom: 15px; }
+    h3 { font-size: 20px; font-weight: 800; }
+    .gradient-text { color: var(--cyan); }
+    .lead { font-size: 17px; line-height: 1.72; max-width: 57ch; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 27px; }
+    .pill { font-size: 12px; font-weight: 700; border-radius: 99px; padding: 6px 11px; color: var(--text); border: 1px solid var(--border); background: var(--surface-soft); }
+    .btn { appearance: none; display: inline-flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 14px; padding: 14px 19px; border-radius: 12px; border: 1px solid var(--neon); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #00aaff; color: #00182d; border-color: #00aaff; box-shadow: 0 10px 34px rgba(0,170,255,.19); }
+    .btn-primary:hover { color: #00182d; background: #22c0ff; }
+    .btn-secondary { background: var(--surface); color: var(--text-bright); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--neon); color: var(--text-bright); }
+    .btn:disabled { opacity: .36; cursor: not-allowed; transform: none; }
+    .micro { margin-top: 13px; color: var(--text-dim); font-size: 12px; }
+    .path-diagram { position: relative; min-height: 322px; padding: 29px 20px; border: 1px solid var(--border); border-radius: 24px; background: linear-gradient(125deg, var(--surface), transparent), var(--surface-soft); box-shadow: var(--shadow); overflow: hidden; }
+    .path-diagram::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px); background-size: 25px 25px; }
+    .diagram-label { color: var(--text-dim); text-transform: uppercase; letter-spacing: .15em; font-size: 10px; font-weight: 800; position: relative; }
+    .diagram-spine { position: absolute; top: 76px; bottom: 37px; left: 34px; border-left: 1px dashed var(--cyan); opacity: .65; }
+    .path-card { position: relative; display: flex; align-items: center; gap: 13px; border: 1px solid var(--border); border-radius: 13px; padding: 13px 11px; margin-top: 16px; background: var(--surface); }
+    .path-icon { width: 34px; height: 34px; flex: 0 0 34px; display: grid; place-items: center; border-radius: 10px; color: var(--cyan); background: var(--surface-raised); border: 1px solid var(--border); }
+    .path-card strong { display: block; color: var(--text-bright); line-height: 1.3; font-size: 12px; }
+    .path-card small { display: block; font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+    .section { padding: 42px 0 63px; scroll-margin-top: 90px; }
+    .section-head { margin-bottom: 26px; }
+    .section-head p { color: var(--text-dim); max-width: 64ch; margin-bottom: 0; }
+    .reason-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 19px; box-shadow: 0 10px 35px rgba(0,0,0,0.06); }
+    .reason { padding: 23px 20px; }
+    .reason-icon { width: 44px; height: 44px; display: grid; place-items: center; font-size: 23px; color: var(--cyan); background: var(--surface-raised); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 20px; }
+    .reason h3 { font-size: 16px; letter-spacing: -.025em; margin-bottom: 9px; }
+    .reason p { color: var(--text); font-size: 13px; margin: 0; }
+    .experience { display: grid; grid-template-columns: 0.9fr 1.1fr; overflow: hidden; }
+    .workshop-art { min-height: 320px; position: relative; display: grid; place-items: center; isolation: isolate; background: radial-gradient(circle at 52% 45%, rgba(0,170,255,.11), transparent 70%), var(--surface-soft); border-right: 1px solid var(--border); }
+    .workshop-art::after { content: ''; position: absolute; width: 210px; height: 210px; border: 1px dashed var(--border); border-radius: 50%; }
+    .wood-piece { position: absolute; z-index: 1; height: 43px; width: 174px; border-radius: 5px; background: repeating-linear-gradient(9deg, transparent 0 14px, var(--wood-line) 15px 16px, transparent 17px 28px), linear-gradient(130deg, var(--wood-a), var(--wood-b)); border: 1px solid rgba(130,77,30,.4); box-shadow: 2px 12px 25px rgba(0,0,0,.17); }
+    .wood-piece.one { transform: rotate(46deg) translate(-5px,-2px); }
+    .wood-piece.two { transform: rotate(-46deg) translate(-5px,-2px); }
+    .wood-piece.three { width: 74px; height: 70px; transform: rotate(0deg); background: var(--wood-a); opacity: .75; z-index: 0; }
+    .workshop-label { position: absolute; bottom: 23px; left: 23px; z-index: 2; color: var(--text-dim); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; font-weight: 800; }
+    .experience-content { padding: 34px 32px; }
+    .experience-content h3 { margin-bottom: 12px; }
+    .experience-content p { font-size: 14px; }
+    .session-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; color: var(--text-dim); font-size: 12px; margin: 15px 0; }
+    .session-price { font-weight: 900; font-size: 24px; color: var(--cyan); }
+    .note { border-left: 3px solid var(--cyan); padding: 8px 13px; background: var(--surface-soft); color: var(--text-dim); font-size: 12px; border-radius: 0 8px 8px 0; }
+    .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    blockquote { margin: 0; padding: 24px; }
+    blockquote .quote-mark { display: block; font-size: 34px; height: 33px; color: var(--cyan); font-weight: 900; }
+    blockquote p { color: var(--text-bright); font-weight: 600; margin-bottom: 24px; }
+    blockquote cite { font-size: 11px; font-style: normal; color: var(--text-dim); }
+    .clarification { color: var(--text-dim); font-size: 12px; margin-top: 12px; }
+    .faq-list { display: grid; gap: 10px; }
+    details.faq { padding: 0 19px; }
+    .faq summary { list-style: none; display: flex; gap: 16px; justify-content: space-between; align-items: center; cursor: pointer; font-size: 14px; font-weight: 700; color: var(--text-bright); padding: 19px 0; }
+    .faq summary::-webkit-details-marker, .catalogue summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--cyan); font-size: 23px; font-weight: 400; line-height: 1; }
+    .faq[open] summary::after { content: '−'; }
+    .faq p { margin: -1px 0 20px; color: var(--text); font-size: 13px; padding-right: 21px; }
+    .quiz-shell { padding: 30px; box-shadow: var(--shadow); }
+    .quiz-topline { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    .quiz-topline h3 { margin-bottom: 4px; font-size: 23px; }
+    .quiz-topline p { margin: 0; color: var(--text-dim); font-size: 13px; }
+    .compass { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 13px; background: var(--surface-raised); border: 1px solid var(--border); color: var(--cyan); font-size: 27px; }
+    .rule { height: 1px; background: var(--border); margin: 25px 0; }
+    .step-label { display: flex; justify-content: space-between; color: var(--text-dim); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+    .progress { margin: 10px 0 24px; height: 6px; overflow: hidden; border-radius: 999px; background: var(--surface-raised); }
+    .progress-fill { background: linear-gradient(90deg, #00aaff, #00e5ff); height: 100%; transition: width .25s ease; }
+    .question-title { font-size: clamp(20px,3vw,25px); margin-bottom: 22px; }
+    .answers { display: grid; gap: 10px; }
+    .answer { display: flex; align-items: center; gap: 15px; padding: 15px 17px; cursor: pointer; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-soft); transition: border-color .15s ease, background .15s ease; font-size: 14px; color: var(--text); }
+    .answer:hover { border-color: var(--neon); }
+    .answer:has(input:checked) { border-color: var(--cyan); background: var(--surface-raised); box-shadow: inset 0 0 0 1px var(--cyan); }
+    .answer input { appearance: none; display: grid; place-items: center; flex: 0 0 18px; height: 18px; width: 18px; border: 2px solid var(--text-dim); border-radius: 50%; margin: 0; background: transparent; }
+    .answer input::before { content: ''; width: 8px; height: 8px; border-radius: 50%; transform: scale(0); background: var(--cyan); transition: transform .12s; }
+    .answer input:checked { border-color: var(--cyan); }
+    .answer input:checked::before { transform: scale(1); }
+    .answer input:focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
+    .quiz-controls { display: flex; justify-content: space-between; gap: 10px; margin-top: 24px; }
+    .result-eyebrow { display: inline-block; font-size: 12px; color: var(--cyan); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+    .result-description { font-size: 15px; max-width: 68ch; }
+    .recommendations { display: grid; gap: 12px; margin: 24px 0; scroll-margin-top: 100px; }
+    .recommendation { display: flex; align-items: start; gap: 16px; padding: 19px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 14px; }
+    .result-number { flex: 0 0 35px; width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid var(--border); background: var(--surface-raised); border-radius: 10px; color: var(--cyan); font-size: 12px; font-weight: 900; }
+    .recommendation-content { flex: 1; min-width: 0; }
+    .recommendation-header { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 8px; }
+    .recommendation h4 { font-size: 15px; letter-spacing: -.025em; margin: 4px 0 7px; }
+    .family-label { color: var(--text-dim); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .mini-price { color: var(--cyan); font-weight: 900; font-size: 17px; }
+    .recommendation p { font-size: 12px; line-height: 1.65; margin: 6px 0 0; }
+    .why { color: var(--text-dim); }
+    .result-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .catalogue { margin-top: 22px; overflow: hidden; }
+    .catalogue summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 19px 21px; color: var(--text-bright); font-weight: 800; }
+    .catalogue summary::after { content: '+'; color: var(--cyan); font-size: 24px; font-weight: 400; }
+    .catalogue[open] summary::after { content: '−'; }
+    .catalogue-body { padding: 2px 20px 22px; }
+    .catalogue-intro { color: var(--text-dim); font-size: 12px; }
+    .course-list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .course { padding: 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-soft); }
+    .course-type { font-size: 10px; text-transform: uppercase; letter-spacing: .09em; color: var(--cyan); font-weight: 800; }
+    .course h4 { font-size: 14px; margin: 5px 0 8px; letter-spacing: -.02em; }
+    .course p { font-size: 12px; margin-bottom: 10px; }
+    .course-bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: var(--text-dim); }
+    .course-bottom strong { color: var(--cyan); font-size: 17px; }
+    .course-career { color: var(--text-dim); font-size: 11px; border-top: 1px solid var(--border); margin-top: 12px; padding-top: 9px; }
+    .site-footer { border-top: 1px solid var(--border); padding: 35px 0 50px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+    .footer-inner strong { color: var(--text-bright); }
+    .footer-inner p { font-size: 12px; color: var(--text-dim); max-width: 560px; margin: 6px 0 0; }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; padding: 58px 0 47px; }
+      .path-diagram { min-height: auto; }
+      .reason-grid { grid-template-columns: 1fr; }
+      .reason { display: grid; grid-template-columns: 45px 1fr; column-gap: 15px; padding: 18px; }
+      .reason-icon { grid-row: span 2; margin: 0; }
+      .reason h3 { margin-bottom: 4px; }
+      .experience { grid-template-columns: 1fr; }
+      .workshop-art { min-height: 255px; border-right: 0; border-bottom: 1px solid var(--border); }
+      .quote-grid { grid-template-columns: 1fr; }
+      .section { padding: 38px 0 50px; }
+    }
+    @media (max-width: 490px) {
+      .wrap { width: min(880px, calc(100% - 28px)); }
+      .header-inner { min-height: 64px; }
+      .header-link { display: none; }
+      .hero { gap: 21px; }
+      h1 { font-size: 38px; }
+      .experience-content { padding: 23px; }
+      .quiz-shell { padding: 21px 17px; }
+      .course-list { grid-template-columns: 1fr; }
+      .recommendation { gap: 11px; padding: 14px; }
+      .btn { font-size: 13px; padding: 12px 15px; }
+      .quiz-controls { align-items: stretch; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="orb orb-one" aria-hidden="true"></div>
+  <div class="orb orb-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Trade Academy, back to top"><span class="brand-mark" aria-hidden="true">🔧</span><span>TRADE ACADEMY</span></a>
+      <nav class="header-actions" aria-label="Main navigation">
+        <a class="header-link" href="#skills">Explore sessions</a>
+        <a class="header-link" href="#quiz">Find your skill</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Toggle colour theme"><span class="dark-icon" aria-hidden="true">☀</span><span class="light-icon" aria-hidden="true">☾</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <!-- 1. Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div>
+        <div class="eyebrow">Trade Academy · Ireland</div>
+        <h1 id="hero-heading">Your next career could start with <span class="gradient-text">one evening.</span></h1>
+        <p class="lead">Six hands-on, 90-minute introductions to skills Ireland needs. Meet a working tradesperson, discover what the job involves and explore your next step without committing to years of training.</p>
+        <div class="pills" aria-label="Session highlights"><span class="pill">⏱ 90 minutes</span><span class="pill">€39–€59</span><span class="pill">Beginner-friendly</span></div>
+        <a class="btn btn-primary" href="#quiz">Find your next skill <span aria-hidden="true">→</span></a>
+        <p class="micro">Find three personalised session recommendations in five questions.</p>
+      </div>
+      <div class="path-diagram" aria-label="Three career pathways and two tasters in each">
+        <div class="diagram-label">Your skills map · 3 pathways</div>
+        <div class="diagram-spine" aria-hidden="true"></div>
+        <div class="path-card"><span class="path-icon" aria-hidden="true">⚡</span><div><strong>Electrical & Energy</strong><small>Electricity · Solar & EV charging</small></div></div>
+        <div class="path-card"><span class="path-icon" aria-hidden="true">◉</span><div><strong>Plumbing & Heating</strong><small>Water systems · Heat pumps</small></div></div>
+        <div class="path-card"><span class="path-icon" aria-hidden="true">▱</span><div><strong>Carpentry & Construction</strong><small>Joinery · Timber-frame building</small></div></div>
+      </div>
+    </section>
+
+    <!-- 2. Three reasons -->
+    <section class="section" id="why" aria-labelledby="why-heading">
+      <div class="section-head"><div class="eyebrow">Why Trade Academy?</div><h2 id="why-heading">A practical way to find your direction.</h2></div>
+      <div class="reason-grid">
+        <article class="card reason"><span class="reason-icon" aria-hidden="true">◇</span><h3>Explore without committing</h3><p>Discover what a trade actually involves before considering an apprenticeship or longer training programme.</p></article>
+        <article class="card reason"><span class="reason-icon" aria-hidden="true">⚡</span><h3>Discover skills Ireland needs</h3><p>Explore electrical, heating and construction careers connected to housing, retrofitting and infrastructure.</p></article>
+        <article class="card reason"><span class="reason-icon" aria-hidden="true">↗</span><h3>Find a direction that suits you</h3><p>Answer five questions to discover three practical sessions matched to your interests and career-exploration stage.</p></article>
+      </div>
+    </section>
+
+    <!-- 3. Sample experience -->
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <div class="section-head"><div class="eyebrow">See what it's like</div><h2 id="experience-heading">One evening. Something real.</h2><p>A look at one of the six planned beginner-friendly experiences.</p></div>
+      <article class="card experience">
+        <div class="workshop-art" role="img" aria-label="Illustration of interlocking timber pieces in a beginner woodworking activity"><div class="wood-piece three"></div><div class="wood-piece one"></div><div class="wood-piece two"></div><span class="workshop-label">Learn by doing</span></div>
+        <div class="experience-content">
+          <div class="eyebrow">Featured taster</div>
+          <h3>Carpentry: Measure, Fit & Assemble</h3>
+          <div class="session-meta"><span class="session-price">€49</span><span>90 minutes</span><span>·</span><span>Beginner</span></div>
+          <p>Measure and align timber, discover how joints fit together, and assemble a small pre-cut project under supervision. Leave with something you've made and a clearer understanding of the work.</p>
+          <div class="note">No previous carpentry experience required. This is an introduction, not a professional qualification.</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 4. Sourced audience concerns (not academy testimonials) -->
+    <section class="section" id="voices" aria-labelledby="voices-heading">
+      <div class="section-head"><div class="eyebrow">Real questions, real people</div><h2 id="voices-heading">You're not the only one wondering what comes next.</h2><p>Choosing a new direction can raise difficult questions. Trade Academy helps you explore the work before deciding what to do next.</p></div>
+      <div class="quote-grid">
+        <blockquote class="card"><span class="quote-mark" aria-hidden="true">“</span><p>Am I too old? Money wise is it possible?</p><cite>Public discussion, <a href="https://www.reddit.com/r/AskIreland/comments/1rv75l2/start_an_electrical_apprenticeship_in_ireland_at/" target="_blank" rel="noopener noreferrer">r/AskIreland, March 2026 ↗</a></cite></blockquote>
+        <blockquote class="card"><span class="quote-mark" aria-hidden="true">“</span><p>You'd think it'd be easier to find apprenticeship opportunities.</p><cite>Public discussion, <a href="https://www.reddit.com/r/AskIreland/comments/1ojtuel/career_change_why_is_it_do_hard_to_find/" target="_blank" rel="noopener noreferrer">r/AskIreland, October 2025 ↗</a></cite></blockquote>
+      </div>
+      <p class="clarification">These are public community comments reflecting career-change concerns, not testimonials from Trade Academy attendees.</p>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="section-head"><div class="eyebrow">Good to know</div><h2 id="faq-heading">Questions before your first taster?</h2></div>
+      <div class="faq-list">
+        <details class="card faq"><summary>Do I need experience?</summary><p>No. All six tasters are designed as introductions for beginners.</p></details>
+        <details class="card faq"><summary>Will I receive a professional qualification?</summary><p>No. These are 90-minute discovery sessions, not accredited trade training or certifications.</p></details>
+        <details class="card faq"><summary>How much does a session cost?</summary><p>Proposed pilot prices range from €39 to €59, depending on the activity and equipment.</p></details>
+        <details class="card faq"><summary>What if I'm worried about the physical demands?</summary><p>A tradesperson will explain the working conditions and practical demands of the occupation. Ask the organiser about accessibility and activity requirements before attending.</p></details>
+        <details class="card faq"><summary>Can I pursue the career afterwards?</summary><p>Yes, you can explore relevant apprenticeship, FET or specialist training pathways. Entry requirements vary, and attending a taster does not guarantee admission or employment.</p></details>
+      </div>
+    </section>
+
+    <!-- 6. Working qualifier and discoverable catalogue -->
+    <section class="section" id="quiz" aria-labelledby="quiz-heading">
+      <div class="section-head"><div class="eyebrow">Find your next skill</div><h2 id="quiz-heading">Curious where to start?</h2><p>Discover your interests, then get three course recommendations and a useful next step.</p></div>
+      <div class="card quiz-shell">
+        <div class="quiz-topline"><div><h3>Is this for you?</h3><p>Five quick questions. Three recommended tasters.</p></div><span class="compass" aria-hidden="true">✧</span></div>
+        <div class="rule"></div>
+        <div id="quiz-stage">
+          <div class="step-label"><span id="step-count">Question 1 of 5</span><span id="step-percent">20%</span></div>
+          <div class="progress" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="quiz-progress"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+          <form id="question-form">
+            <fieldset style="border:0; padding:0; margin:0; min-width:0;"><legend id="question-title" class="question-title">What kind of work interests you most?</legend><div id="answers" class="answers"></div></fieldset>
+            <div class="quiz-controls"><button type="button" class="btn btn-secondary" id="back-button" disabled>← Back</button><button type="submit" class="btn btn-primary" id="next-button" disabled>Next question →</button></div>
+          </form>
+        </div>
+        <div id="results" hidden aria-live="polite">
+          <span class="result-eyebrow" id="tier-name"></span><h3 id="result-title" tabindex="-1"></h3>
+          <p class="result-description" id="result-description"></p>
+          <div class="note" id="tier-note"></div>
+          <div class="recommendations" id="recommendations" aria-label="Your three recommended courses"></div>
+          <div class="result-actions"><button type="button" class="btn btn-primary" id="result-cta"></button><button type="button" class="btn btn-secondary" id="restart-button">↺ Start again</button></div>
+          <p class="clarification">These matches reflect your interests and exploration stage, not a formal assessment of aptitude or eligibility.</p>
+        </div>
+      </div>
+      <details class="card catalogue" id="skills">
+        <summary>Browse all six tasters</summary>
+        <div class="catalogue-body"><p class="catalogue-intro">Every session is 90 minutes and beginner-friendly. Prices shown are proposed pilot prices. The activities are introductions, not professional qualifications.</p><div id="course-list" class="course-list"></div></div>
+      </details>
+    </section>
+  </main>
+
+  <!-- 7. Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner"><div><strong>🔧 Trade Academy</strong><p>Explore practical skills. Discover new possibilities.</p><p>These sessions are career tasters, not recognised professional qualifications. This is a demonstration concept; sessions and booking availability are not yet confirmed.</p></div><div class="footer-links"><a href="#skills">Course catalogue</a><a href="https://apprenticeship.ie/" target="_blank" rel="noopener noreferrer">Apprenticeship Ireland ↗</a><a href="https://www.etbi.ie/fet-guidance/" target="_blank" rel="noopener noreferrer">FET guidance ↗</a></div></div>
+  </footer>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const themeToggle = document.getElementById('theme-toggle');
+      function updateThemeButton() {
+        const light = document.documentElement.classList.contains('light');
+        themeToggle.setAttribute('aria-pressed', String(light));
+        themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+        themeToggle.title = light ? 'Switch to dark mode' : 'Switch to light mode';
+        document.querySelector('meta[name="theme-color"]').content = light ? '#f5f9ff' : '#020a18';
+      }
+      updateThemeButton();
+      themeToggle.addEventListener('click', () => {
+        const light = document.documentElement.classList.toggle('light');
+        try { localStorage.setItem('trade-academy-theme', light ? 'light' : 'dark'); } catch (_) {}
+        updateThemeButton();
+      });
+
+      // Course descriptions and career connections follow the Designer's approved spec.
+      const courses = [
+        { id: 'E1', family: 'Electrical & Energy', title: 'Electricity: How a Modern Home Works', price: 39, description: 'Explore electrical concepts and a simple circuit using a safe demonstration model.', career: 'Electrical apprenticeship and building electrical systems.' },
+        { id: 'E2', family: 'Electrical & Energy', title: 'Solar, Batteries & EV Charging', price: 59, description: 'Discover how renewable generation, electricity storage and EV charging work together.', career: 'Renewable-energy electrical specialisation.' },
+        { id: 'H1', family: 'Plumbing & Heating', title: 'Plumbing: Water Flow & Fault Finding', price: 39, description: 'Build a simple unpressurised water-system model and understand basic faults.', career: 'Plumbing and domestic building services.' },
+        { id: 'H2', family: 'Plumbing & Heating', title: 'Heat Pumps & Smart Home Heating', price: 59, description: 'Explore how heat pumps work and how efficient heating systems are controlled.', career: 'Heating engineering, heat-pump installation and HVAC.' },
+        { id: 'C1', family: 'Carpentry & Construction', title: 'Carpentry: Measure, Fit & Assemble', price: 49, description: 'Assemble a small pre-cut timber project under supervision.', career: 'Carpentry, joinery and construction.' },
+        { id: 'C2', family: 'Carpentry & Construction', title: 'Build a Mini Timber-Frame House', price: 49, description: 'Assemble a model wall and discover prefabrication, insulation and airtightness.', career: 'Timber-frame construction, MMC and off-site manufacturing.' }
+      ];
+      const questions = [
+        { title: 'What kind of work interests you most?', options: [
+          { text: 'Electricity, technology and energy', scores: { E1: 3, E2: 3 } },
+          { text: 'Water systems, heating and comfort', scores: { H1: 3, H2: 3 } },
+          { text: 'Building, making and working with materials', scores: { C1: 3, C2: 3 } },
+          { text: "I'm not sure yet — I'd like to explore", scores: { E1: 2, H2: 2, C1: 2 } }
+        ]},
+        { title: 'Which activity sounds most enjoyable?', options: [
+          { text: "Finding out why a system isn't working", scores: { E1: 2, H1: 2 } },
+          { text: 'Exploring cleaner technologies', scores: { E2: 2, H2: 2 } },
+          { text: 'Assembling something with my hands', scores: { C1: 2, C2: 2 } },
+          { text: 'Understanding how modern buildings are put together', scores: { E2: 2, C2: 2 } }
+        ]},
+        { title: 'What would you most like to try?', options: [
+          { text: 'Understanding a simple technical model', scores: { E1: 2, H1: 2 } },
+          { text: 'Exploring how to make a home more energy-efficient', scores: { H2: 2, C2: 2 } },
+          { text: 'Making a small object to take home', scores: { C1: 3 } },
+          { text: 'Discovering how renewable-energy equipment works', scores: { E2: 3 } }
+        ]},
+        { title: 'How much practical experience do you have?', options: [
+          { text: "None — I'm completely new", readiness: 0 },
+          { text: 'A little DIY or informal experience', readiness: 0 },
+          { text: "I'm considering formal vocational training", readiness: 1 },
+          { text: 'I already work or have trained in a practical field', readiness: 2 }
+        ]},
+        { title: 'Where are you in your career journey?', options: [
+          { text: 'Just curious — no commitment planned', readiness: 0 },
+          { text: 'Comparing different career possibilities', readiness: 1 },
+          { text: 'Researching apprenticeships or further education', readiness: 2 },
+          { text: 'Ready to explore a specific training pathway', readiness: 3 }
+        ]}
+      ];
+      const tiers = [
+        { name: 'Hands-On Explorer', heading: 'Start with curiosity.', description: "You don't need to have a career plan today. Start by experiencing the work, asking questions and discovering what catches your interest.", note: 'Start with the beginner-friendly activities in your three matched sessions.', cta: 'Explore my three tasters', action: 'matches' },
+        { name: 'Career Comparer', heading: 'Compare before you commit.', description: "You're exploring which direction makes sense. Try different working styles, compare the practical demands and consider what further training each profession involves.", note: 'Compare the activities, prices and career connections of all six tasters.', cta: 'Compare all six tasters', action: 'catalogue' },
+        { name: 'Pathway Planner', heading: 'Discover your next practical step.', description: "You're looking beyond curiosity towards practical training. Use these sessions to explore your preferred occupation, question an instructor and understand the qualifications you may need.", note: 'A taster is not accredited training. Formal apprenticeship and specialist entry requirements vary.', cta: 'Explore formal pathways ↗', action: 'pathways' }
+      ];
+      const tieOrder = ['E1', 'H2', 'C1', 'H1', 'C2', 'E2'];
+      const choices = Array(questions.length).fill(null);
+      let step = 0;
+      let resultAction = 'matches';
+      const stage = document.getElementById('quiz-stage');
+      const results = document.getElementById('results');
+      const answersEl = document.getElementById('answers');
+      const nextButton = document.getElementById('next-button');
+      const backButton = document.getElementById('back-button');
+      const resultCTA = document.getElementById('result-cta');
+      const catalogue = document.getElementById('skills');
+      const recommendationsEl = document.getElementById('recommendations');
+      const courseList = document.getElementById('course-list');
+
+      function makeElement(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text !== undefined) el.textContent = text;
+        return el;
+      }
+      function renderCatalogue() {
+        courseList.replaceChildren();
+        courses.forEach(course => {
+          const card = makeElement('article', 'course');
+          card.append(makeElement('div', 'course-type', course.family));
+          card.append(makeElement('h4', '', course.title));
+          card.append(makeElement('p', '', course.description));
+          const bottom = makeElement('div', 'course-bottom');
+          bottom.append(makeElement('span', '', '90 minutes · Beginner'));
+          bottom.append(makeElement('strong', '', `€${course.price}`));
+          card.append(bottom);
+          card.append(makeElement('div', 'course-career', `Career connection: ${course.career}`));
+          courseList.append(card);
+        });
+      }
+      function renderQuestion() {
+        stage.hidden = false;
+        results.hidden = true;
+        const q = questions[step];
+        document.getElementById('step-count').textContent = `Question ${step + 1} of ${questions.length}`;
+        document.getElementById('step-percent').textContent = `${Math.round((step + 1) / questions.length * 100)}%`;
+        document.getElementById('quiz-progress').setAttribute('aria-valuenow', String(step + 1));
+        document.getElementById('progress-fill').style.width = `${((step + 1) / questions.length) * 100}%`;
+        document.getElementById('question-title').textContent = q.title;
+        answersEl.replaceChildren();
+        q.options.forEach((option, index) => {
+          const label = makeElement('label', 'answer');
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = `question-${step}`;
+          input.value = String(index);
+          input.checked = choices[step] === index;
+          input.addEventListener('change', () => {
+            choices[step] = index;
+            nextButton.disabled = false;
+          });
+          label.append(input, makeElement('span', '', option.text));
+          answersEl.append(label);
+        });
+        backButton.disabled = step === 0;
+        nextButton.disabled = choices[step] === null;
+        nextButton.textContent = step === questions.length - 1 ? 'See my 3 matches →' : 'Next question →';
+      }
+      function chooseCourses() {
+        const scores = Object.fromEntries(courses.map(c => [c.id, 0]));
+        for (let i = 0; i < 3; i++) {
+          const additions = questions[i].options[choices[i]].scores;
+          Object.entries(additions).forEach(([id, points]) => { scores[id] += points; });
+        }
+        const ranked = courses.slice().sort((a,b) => scores[b.id] - scores[a.id] || tieOrder.indexOf(a.id) - tieOrder.indexOf(b.id));
+        const selected = [], familyCounts = {};
+        ranked.forEach(course => {
+          if (selected.length >= 3 || (familyCounts[course.family] || 0) >= 2) return;
+          selected.push(course);
+          familyCounts[course.family] = (familyCounts[course.family] || 0) + 1;
+        });
+        return selected;
+      }
+      function matchingReason(course) {
+        // Explain an actual answer that contributed matching points, not an inferred personality trait.
+        const reasons = [
+          ['Your interest in electricity, technology and energy', 'Your interest in water systems, heating and comfort', 'Your interest in building and making', 'Your wish to explore different practical skills'],
+          ['Your interest in finding out why a system is not working', 'Your interest in cleaner technologies', 'Your enjoyment of assembling things', 'Your interest in how modern buildings are put together'],
+          ['Your interest in understanding a technical model', 'Your interest in energy-efficient homes', 'Your interest in making an object to take home', 'Your interest in renewable-energy equipment']
+        ];
+        for (const i of [2,1,0]) {
+          if (questions[i].options[choices[i]].scores[course.id]) return `Why it matched: ${reasons[i][choices[i]]}.`;
+        }
+        return 'Why it matched: an introduction to a practical trade.';
+      }
+      function showResults() {
+        const readiness = questions[3].options[choices[3]].readiness + questions[4].options[choices[4]].readiness;
+        const tier = readiness <= 1 ? tiers[0] : readiness <= 3 ? tiers[1] : tiers[2];
+        resultAction = tier.action;
+        document.getElementById('tier-name').textContent = tier.name;
+        document.getElementById('result-title').textContent = tier.heading;
+        document.getElementById('result-description').textContent = tier.description;
+        document.getElementById('tier-note').textContent = tier.note;
+        resultCTA.textContent = tier.cta;
+        recommendationsEl.replaceChildren();
+        chooseCourses().forEach((course, index) => {
+          const card = makeElement('article', 'recommendation');
+          card.append(makeElement('span', 'result-number', String(index + 1).padStart(2, '0')));
+          const content = makeElement('div', 'recommendation-content');
+          const header = makeElement('div', 'recommendation-header');
+          header.append(makeElement('span', 'family-label', course.family));
+          header.append(makeElement('span', 'mini-price', `€${course.price}`));
+          content.append(header);
+          content.append(makeElement('h4', '', course.title));
+          content.append(makeElement('p', '', course.description));
+          content.append(makeElement('p', 'why', matchingReason(course)));
+          card.append(content);
+          recommendationsEl.append(card);
+        });
+        stage.hidden = true;
+        results.hidden = false;
+        document.getElementById('result-title').focus({ preventScroll: true });
+        document.getElementById('quiz').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      }
+      document.getElementById('question-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (choices[step] === null) return;
+        if (step === questions.length - 1) showResults();
+        else { step += 1; renderQuestion(); document.getElementById('question-title').scrollIntoView({ block: 'nearest' }); }
+      });
+      backButton.addEventListener('click', () => { if (step > 0) { step -= 1; renderQuestion(); } });
+      document.getElementById('restart-button').addEventListener('click', () => {
+        choices.fill(null);
+        step = 0;
+        renderQuestion();
+        document.getElementById('question-title').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      resultCTA.addEventListener('click', () => {
+        if (resultAction === 'pathways') {
+          window.open('https://apprenticeship.ie/', '_blank', 'noopener,noreferrer');
+        } else if (resultAction === 'catalogue') {
+          catalogue.open = true;
+          catalogue.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          recommendationsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      renderCatalogue();
+      renderQuestion();
+    })();
+  </script>
+</body>
+</html>
